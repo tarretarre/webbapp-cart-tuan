@@ -55,6 +55,11 @@ html, body {
     color: #C9ADA7;
 }
 
+a {
+    text-decoration: none;
+    color: #C9ADA7;
+}
+
 .store-name {
     text-align: center;
     margin: 0;
