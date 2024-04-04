@@ -68,7 +68,7 @@ function loadCartFromLocalStorage() {
         cartItems.forEach(item => {
             addItemToCart(item.title, item.price, item.imageSrc);
         });
-        updateCartTotal;
+        updateCartTotal();
     }
 }
 
