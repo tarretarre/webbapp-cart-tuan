@@ -60,6 +60,11 @@ a {
     color: #C9ADA7;
 }
 
+a:hover {
+    text-decoration: none;
+    color: #b3948d;
+}
+
 .store-name {
     text-align: center;
     margin: 0;
@@ -73,6 +78,11 @@ a {
     color: #C9ADA7;
 }
 
+.store-name a:hover {
+    text-decoration: none;
+    color: #b3948d;
+}
+
 .store-name-large {
     font-size: 8em;
 }
@@ -80,6 +90,11 @@ a {
 .store-name-large a {
     text-decoration: none;
     color: #C9ADA7;
+}
+
+.store-name-large a:hover {
+    text-decoration: none;
+    color: #b3948d;
 }
 
 .main-footer {
