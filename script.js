@@ -57,9 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('change', quantityChanged);
     });
 
+    initializeButtons();
+});
+
+function initializeButtons() {
+    var cartRemoveItemButtons = document.querySelectorAll('.btn-danger');
+    cartRemoveItemButtons.forEach(button => {
+        button.addEventListener('click', removeCartItem);
+    });
+
+    var quantityInputs = document.querySelectorAll('.cart-quantity-input');
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', quantityChanged);
+    });
+
     document.querySelector('.btn-purchase').addEventListener('click', purchaseClicked);
     document.querySelector('.btn-clear-cart').addEventListener('click', clearCart);
-});
+}
 
 function loadCartFromLocalStorage() {
     var cartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -125,28 +139,16 @@ function purchaseClicked() {
     alert('Thank you for your purchase');
     var cartItemsContainer = document.querySelector('.sidebar');
     cartItemsContainer.innerHTML = `
-        <h4>Cart</h4>
-        <div class="cart-total">
-            <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">$0.00</span>
-        </div>
-        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-    `;
-    updateCartTotal();
-}
-
-function clearCart() {
-    var cartItemsContainer = document.querySelector('.sidebar');
-    cartItemsContainer.innerHTML = `
-        <h4>Cart</h4>
-        <div class="cart-total">
-            <strong class="cart-total-title">Total</strong>
-            <span class="cart-total-price">$0.00</span>
-        </div>
-        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-    `;
+    <h4>Cart</h4>
+    <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="cart-total-price">$0.00</span><br>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button><br>
+    </div>
+`;
     updateCartTotal();
     localStorage.removeItem('cartItems');
+    initializeButtons();
 }
 
 function addToCartClicked(event) {
