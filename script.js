@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('.btn-purchase').addEventListener('click', purchaseClicked);
+    document.querySelector('.btn-clear-cart').addEventListener('click', clearCart);
 });
 
 function loadCartFromLocalStorage() {
@@ -132,6 +133,20 @@ function purchaseClicked() {
         <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
     `;
     updateCartTotal();
+}
+
+function clearCart() {
+    var cartItemsContainer = document.querySelector('.sidebar');
+    cartItemsContainer.innerHTML = `
+        <h4>Cart</h4>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0.00</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    `;
+    updateCartTotal();
+    localStorage.removeItem('cartItems');
 }
 
 function addToCartClicked(event) {
